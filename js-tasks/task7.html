@@ -1,0 +1,37 @@
+<html>
+<head>
+    <link rel="stylesheet" href="task7.css">
+</head>
+<body>
+    <img class="train" src="train.png">
+    <h2 style = "color : darkblue ; text-align: center; font-size: 35px;">Click the following buttons to handle animation</h2>
+    <div style = "display : flex; justify-content: center; margin: auto;">
+    <button id="start" style = "width : 60px; height : 30px; margin-right: 10px;">Start</button>
+    <button id="stop" style = "width : 60px; height : 30px;">Stop</button>
+    </div>
+</body>
+<script>
+    const train = document.querySelector(".train");
+    const start = document.getElementById("start");
+    const stop = document.getElementById("stop");
+    let ispaused = true; 
+
+    
+    function startAnimation() {
+        if (ispaused) {
+            train.style.animationPlayState = "running"; 
+        } else {
+            train.style.animationPlayState = "running"; 
+        }
+        ispaused = false;
+    }
+
+    function pauseAnimation() {
+        train.style.animationPlayState = "paused"; 
+        ispaused = true;
+    }
+
+    start.addEventListener("click", startAnimation);
+    stop.addEventListener("click", pauseAnimation);
+</script>
+</html>

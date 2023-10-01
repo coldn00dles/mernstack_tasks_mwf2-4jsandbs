@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div{
+            display : flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <label for="number1">1st Number:</label>
+    <input type="number" id="number1">
+    </div>
+    <div>
+    <label for="number2">2nd Number:</label>
+    <input type="number" id="number2">
+    </div>
+    <button onclick="multiplyNumbers()">Multiply</button>
+    <button onclick="divideNumbers()">Divide</button>
+    
+    <p id="result"></p>
+
+    <script>
+        function multiplyNumbers() {
+
+            const number1 = parseFloat(document.getElementById("number1").value);
+            const number2 = parseFloat(document.getElementById("number2").value);
+
+
+            if (!isNaN(number1) && !isNaN(number2)) {
+                const result = number1 * number2;
+                displayResult(`Result is : ${result}`);
+            } else {
+                displayResult("Please enter valid numbers.");
+            }
+        }
+
+        function divideNumbers() {
+
+            const number1 = parseFloat(document.getElementById("number1").value);
+            const number2 = parseFloat(document.getElementById("number2").value);
+
+ 
+            if (!isNaN(number1) && !isNaN(number2) && number2 !== 0) {
+                const result = number1 / number2;
+                displayResult(`Result is : ${result}`);
+            } else {
+                displayResult("Please enter valid numbers, and make sure the divisor is not zero.");
+            }
+        }
+
+        function displayResult(message) {
+
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = message;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date and Time</title>
+</head>
+<body>
+    
+    <button onclick="displayDate()">show date</button>
+    <p id="datee"></p>
+    
+    <button onclick="displayTime()">show time</button>
+    <p id="timee"></p>
+
+    <script>
+        function displayDate() {
+            const currentDate = new Date();
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const month = monthNames[currentDate.getMonth()];
+            const year = String(currentDate.getFullYear());
+
+            const formattedDate = `${day}/${month}/${year}`;
+            displayResult(formattedDate, "datee");
+        }
+
+        function displayTime() {
+            const currentDateTime = new Date();
+            displayResult(currentDateTime, "timee");
+        }
+
+        function displayResult(message, resultElementId) {
+            // Display the result message
+            const resultElement = document.getElementById(resultElementId);
+            resultElement.textContent = `${message}`;
+        }
+    </script>
+</body>
+</html>

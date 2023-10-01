@@ -1,0 +1,53 @@
+<html>
+<head>
+  <link href="task5.css" rel="stylesheet">
+</head>
+<body>
+  <form id="form">
+    <label for="name">Name:</label> <input type="text" name="name" id="name">
+    <span id="errorName"></span> <br><br>
+    <label for="mail">Email:</label> <input type="email" name="mail" id="mail">
+    <span id="errorMail"></span> <br><br>
+    <label for="site">Website:</label> <input type="text" name="site" id="site">
+    <span id="errorSite"></span> <br><br>
+    <label for="msg">Message:</label> <input type="text" name="msg" id="msg">
+    <span id="errorMsg"></span> <br><br>
+    <button type="submit" id="submit">Submit</button>
+  </form>
+</body>
+<script>
+    const name = document.getElementById('name')
+    const mail = document.getElementById('mail')
+    const site = document.getElementById('site')
+    const msg = document.getElementById('msg')
+    const form = document.getElementById('form')
+
+    const errName = document.getElementById('errorName')
+    const errMail = document.getElementById('errorMail')
+    const errSite = document.getElementById('errorSite')
+    const errMsg = document.getElementById('errorMsg')
+
+    form.addEventListener('submit', (e) => {
+    if (name.value === '' || name.value == null) {
+        e.preventDefault()
+        errName.innerText = 'This field is required'
+        name.style.borderColor = 'red';
+    }
+    if (mail.value === '' || mail.value == null) {
+        e.preventDefault()
+        errMail.innerText = 'A valid email address is required'
+        mail.style.borderColor = 'red';
+    }
+    if (site.value === '' || site.value == null) {
+        e.preventDefault()
+        errSite.innerText = 'A valid url is required'
+        site.style.borderColor = 'red';
+    }
+    if (msg.value === '' || msg.value == null) {
+        e.preventDefault()
+        errMsg.innerText = 'This field is required'
+        msg.style.borderColor = 'red';
+    }
+    })
+</script>
+</html>

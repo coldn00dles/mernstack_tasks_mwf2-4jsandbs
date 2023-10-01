@@ -1,0 +1,181 @@
+<html>
+
+<head>
+  <link href="task8.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Registration Form</h1>
+  <div class = "container">
+  <form id="registration-form">
+
+    <label for="first-name">First Name</label>
+    <input type="text" name="first-name" id="fname">
+    <span id="errorFname"></span> <br><br>
+
+    <label for="last-name">Last Name</label>
+    <input type="text" name="last-name" id="lname">
+    <span id="errorLname"></span> <br><br>
+
+    <label for="mail">Email</label>
+    <input type="email" name="mail" id="mail">
+    <span id="errorMail"></span> <br><br>
+
+    <label for="pass">Password</label>
+    <input type="password" name="pass" id="pass">
+    <span id="errorPass"></span> <br><br>
+
+    <label for="repass">Re-enter Password</label>
+    <input type="password" name="repass" id="repass">
+    <span id="errorRepass"></span> <br><br>
+
+    <div>
+      <div>
+        <label for="gender">Gender</label>
+      </div>
+      <div>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label> <br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+      </div>
+    </div>
+
+    <label for="age">Age</label>
+    <input type="number" name="age" id="age">
+    <span id="errorAge"></span> <br><br>
+
+    <label for="pno">Phone Number</label>
+    <input type="number" name="pno" id="pno">
+    <span id="errorPno"></span> <br><br>
+
+    <label for="addr">Address</label>
+
+    <div>
+      <input type="text" name="addr" id="addr">
+      <span id="errorAddr"></span> <br><br>
+    </div> <br>
+
+    <label for="state">State</label>
+    <input type="text" name="state" id="state">
+    <span id="errorState"></span> <br><br>
+
+    <label>Country</label>
+
+    <select>
+      <option>Choose your country</option>
+      <option>India</option>
+      <option>USA</option>
+      <option>China</option>
+    </select>
+    <br><br>
+
+    <label for="languages">Languages known</label>
+
+    <input type="checkbox" id="english" name="languages[]" value="English">
+    <label for="english">English</label>
+
+    <input type="checkbox" id="kannada" name="languages[]" value="Kannada">
+    <label for="kannada">Kannada</label>
+
+    <input type="checkbox" id="hindi" name="languages[]" value="Hindi">
+    <label for="hindi">Hindi</label>
+
+    <input type="checkbox" id="telugu" name="languages[]" value="Telugu">
+    <label for="telugu">Telugu</label>
+    <br><br>
+
+    <div>
+      <input type="checkbox" name="declaration" value="">
+      <label for="declaration">Hereby I declare all the given details are true</label>
+    </div>
+    <br><br>
+
+    <div>
+      Log in to <a href="https://ethnus.com/">Ethnus</a> website
+    </div>
+
+    <button type="submit" id="submit">Register</button>
+
+  </form>
+  </div>
+  </body>
+
+  <script>
+    const fname = document.getElementById('fname');
+    const lname = document.getElementById('lname');
+    const mail = document.getElementById('mail');
+    const pass = document.getElementById('pass');
+    const repass = document.getElementById('repass');
+    const age = document.getElementById('age');
+    const pno = document.getElementById('pno');
+    const addr = document.getElementById('addr');
+    const state = document.getElementById('state');
+
+    const form = document.getElementById('registration-form');
+
+    const errFname = document.getElementById('errorFname');
+    const errLname = document.getElementById('errorLname');
+    const errMail = document.getElementById('errorMail');
+    const errPass = document.getElementById('errorPass');
+    const errRepass = document.getElementById('errorRepass');
+    const errAge = document.getElementById('errorAge');
+    const errPno = document.getElementById('errorPno');
+    const errAddr = document.getElementById('errorAddr');
+    const errState = document.getElementById('errorState');
+
+    form.addEventListener('submit', (e) => {
+      errFname.innerText = '';
+      errLname.innerText = '';
+      errMail.innerText = '';
+      errPass.innerText = '';
+      errRepass.innerText = '';
+      errAge.innerText = '';
+      errPno.innerText = '';
+      errAddr.innerText = '';
+      errState.innerText = '';
+
+      if (fname.value === '' || fname.value === null) {
+        e.preventDefault();
+        errFname.innerText = 'POOR';
+      }
+      if (lname.value === '' || lname.value === null) {
+        e.preventDefault();
+        errLname.innerText = 'POOR';
+      }
+      if (pass.value === '' || pass.value === null) {
+        e.preventDefault();
+        errPass.innerText = 'POOR';
+      }
+      if (repass.value === '' || repass.value === null) {
+        e.preventDefault();
+        errRepass.innerText = 'POOR OR MISMATCH';
+      }
+      if (pass.value !== repass.value) {
+        e.preventDefault();
+        errRepass.innerText = 'POOR OR MISMATCH';
+      }
+      if (mail.value === '' || mail.value === null) {
+        e.preventDefault();
+        errMail.innerText = 'POOR';
+      }
+      if (age.value === '' || age.value === null) {
+        e.preventDefault();
+        errAge.innerText = 'POOR';
+      }
+      if (pno.value === '' || pno.value === null) {
+        e.preventDefault();
+        errPno.innerText = 'POOR';
+      }
+      if (addr.value === '' || addr.value === null) {
+        e.preventDefault();
+        errAddr.innerText = 'POOR';
+      }
+      if (state.value === '' || state.value === null) {
+        e.preventDefault();
+        errState.innerText = 'POOR';
+      }
+    });
+  </script>
+
+</html>

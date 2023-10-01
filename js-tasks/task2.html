@@ -1,0 +1,33 @@
+<html>
+<head>
+    <style>
+        h1{
+            text-align : center;
+            margin-top : 5%;
+        }
+        input,button,p{
+            justify-content : center;
+            display : flex;
+            margin : auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter a string</h1>
+    <input type="text" id="ipstring" placeholder>
+    <button onclick="alphabeticorder()">Make Alphabetical</button>
+    <p id="result"></p>
+
+    <script>
+        function alphabeticorder() {
+
+            const inp = document.getElementById("ipstring");
+            const ipvalue = inp.value;
+
+            const alphbetstr = ipvalue.split('').sort().join('');
+            const res = document.getElementById("result");
+            res.textContent = `String in alphabetical order: ${alphbetstr}`;
+        }
+    </script>
+</body>
+</html>
